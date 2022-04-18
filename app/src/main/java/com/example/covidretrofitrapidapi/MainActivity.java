@@ -32,19 +32,23 @@ public class MainActivity extends AppCompatActivity {
 
         CovidInfoService service = retrofit.create(CovidInfoService.class);
 
-        Call<CovidHistory> call = service.covidHistory("usa", "2020-06-02");
-        call.enqueue(new Callback<CovidHistory>() {
-            @Override
-            public void onResponse(Call<CovidHistory> call, Response<CovidHistory> response) {
-                CovidHistory covidHistory = (CovidHistory) response.body();
-                Log.d("RESULT", covidHistory.getResponse().get(0).getCountry());
-            }
+        String[] countries = {"usa", "canada", "russia"};
+        for(int i=0;i<countries.length;++i) {
+            Call<CovidHistory> call = service.covidHistory(countries[i], "2020-06-02");
+            call.enqueue(new Callback<CovidHistory>() {
+                @Override
+                public void onResponse(Call<CovidHistory> call, Response<CovidHistory> response) {
+                    CovidHistory covidHistory = (CovidHistory) response.body();
+                    Log.d("RESULT", covidHistory.getResponse().get(0).getCountry());
+                    /////АААА возми код этого цикла у вв73
+                }
 
-            @Override
-            public void onFailure(Call<CovidHistory> call, Throwable t) {
+                @Override
+                public void onFailure(Call<CovidHistory> call, Throwable t) {
 
-            }
-        });
+                }
+            });
+        }
     }
 }
 
