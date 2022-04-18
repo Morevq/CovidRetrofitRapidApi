@@ -1,5 +1,5 @@
 
-package com.example.covidretrofitrapidapi;
+package com.example.covidretrofitrapidapi.history;
 
 import java.util.HashMap;
 import java.util.Map;

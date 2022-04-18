@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.covidretrofitrapidapi.history.CovidHistory;
+
 import retrofit2.Call;
 
 import retrofit2.Callback;
@@ -21,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://covid-193.p.rapidapi.com/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+
+        Test t = new Test.Builder()
+                .setI(5)
                 .build();
 
         CovidInfoService service = retrofit.create(CovidInfoService.class);
@@ -40,6 +47,36 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
+
+
+class Test{
+    String s;
+    int i;
+    double d;
+    Test(){
+        s = "";
+    }
+    static class Builder{
+        Test test = new Test();
+        Builder setI(int i){
+            test.i = i;
+            return this;
+        }
+        Builder setS(String s){
+            test.s = s;
+            return this;
+        }
+        Builder setD(double d){
+            test.d = d;
+            return this;
+        }
+        Test build(){
+            return test;
+        }
+    }
+}
+
 /*
 используемые ссылки:
 https://rapidapi.com/matchilling/api/chuck-norris/

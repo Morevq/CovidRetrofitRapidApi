@@ -1,25 +1,16 @@
 
-package com.example.covidretrofitrapidapi;
+package com.example.covidretrofitrapidapi.history;
 
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
 
 @Generated("jsonschema2pojo")
-public class Deaths {
+public class Tests {
 
-    private String _new;
     private String _1MPop;
     private Integer total;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    public String getNew() {
-        return _new;
-    }
-
-    public void setNew(String _new) {
-        this._new = _new;
-    }
 
     public String get1MPop() {
         return _1MPop;
